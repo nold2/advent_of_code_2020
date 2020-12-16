@@ -209,7 +209,26 @@ def part_one():
         temp = GOAL - data
         if temp in data_set:
             print(temp * data)
-            break
 
 
-part_one()
+def part_two():
+    GOAL = 2020
+
+    remainder_set = set()
+
+    for data in data_set:
+        rem = GOAL - data
+        remainder_set.add((rem, data))
+
+    for remainder, first in remainder_set:
+        for second in data_set:
+            third = remainder - second
+
+            if third in data_set:
+                print(first * second * third)
+                exit()
+
+
+part_two()
+
+# part_one()
